@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+<style>
+    .card{margin-bottom: 15px}
+</style>
+
+<div class="container">
+    <h3>Posts</h3>
+    {% for post in posts %}
+        <a href="{{ path('post', {id: post.id}) }}">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <p>#{{ post.id }}</p>
+                        <a href="{{ path('post', {id: post.id}) }}"><h3 class="card-title">{{ post.title }}</h3></a>
+    {#                    <span>{{ post.added_on }}</span>#}
+                        <p class="card-text">{{ post.description|slice(0,90) }}...</p>
+                        <a href="{{ path('post', {id: post.id}) }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}
