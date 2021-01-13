@@ -14,6 +14,9 @@
     <div class="container">
         <a href="{{ path('home') }}">< Back to Posts</a>
         <h3 class="post-title">{{ post.title }}</h3>
+        {% if post.image %}
+            <img style="width: inherit" class="post-image" src="{{ '/uploads/' ~ post.image }}" alt="{{ post.title }}" />
+        {% endif %}
         <p class="post-description">{{ post.description }}</p>
     </div>
 {% endblock %}

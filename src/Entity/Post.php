@@ -28,10 +28,11 @@ class Post
      */
     private $description;
 
+
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=100)
      */
-    private $added_on;
+    private $image;
 
     public function getId(): ?int
     {
@@ -62,14 +63,14 @@ class Post
         return $this;
     }
 
-    public function getAddedOn(): ?String
+    public function getImage(): ?string
     {
-        return $this->added_on;
+        return $this->image;
     }
 
-    public function setAddedOn(string $added_on): self
+    public function setImage(string $image): self
     {
-        $this->added_on = $added_on;
+        $this->image = $image;
 
         return $this;
     }

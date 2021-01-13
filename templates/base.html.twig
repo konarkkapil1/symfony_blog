@@ -12,7 +12,17 @@
         <nav class="navbar navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="{{ path('home') }}">Blog</a>
-                <a class="btn btn-dark" href="{{ path('create_post') }}">Create Post</a>
+                <div>
+                    {% if app.user %}
+                        <a class="btn btn-outlined" href="{{ path('app_logout') }}">Logout</a>
+                        {% elseif app.user == null %}
+                            <a class="btn btn-primary" href="{{ path('app_login') }}">Login</a>
+                        {% else %}
+                    {% endif %}
+
+                    <a class="btn btn-dark" href="{{ path('create_post') }}">Create Post</a>
+                </div>
+
             </div>
         </nav>
         {% block body %}{% endblock %}
