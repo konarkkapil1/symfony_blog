@@ -2,8 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Post;
 use phpDocumentor\Reflection\Type;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -18,6 +20,9 @@ class PostType extends AbstractType
             ->add('title')
             ->add('image', FileType::class)
             ->add('description')
+            ->add('category', EntityType::class,[
+                'class' => Category::class
+            ])
             ->add('save', SubmitType::class,[
                 'attr' => [
                      'class' => "btn btn-primary float-right"
